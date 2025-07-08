@@ -15,7 +15,18 @@ public class Main {
 
     // Error Prone: missing null check
     public void addStudent(Student student) {
-        studentList.add(student); // potential NPE
+        if (student == null) { // Just to silence the analyzer
+            System.out.println("Invalid student");
+            return;
+        }
+        studentList.add(student);
+
+        // PMD: AvoidPrintStackTrace
+        try {
+            throw new RuntimeException("test");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
     }
 
     // Code Complexity: nested loop could be simplified
@@ -31,7 +42,9 @@ public class Main {
 
     public List<Student> searchStudents(String keyword) {
         List<Student> results = new ArrayList<>();
-        if (keyword.equals("")) { // Error Prone: potential NPE
+
+        // SpotBugs: NP_NULL_ON_SOME_PATH
+        if (keyword.equals("")) {
             return results;
         }
 
@@ -54,5 +67,4 @@ public class Main {
             System.out.println(s); // Code Style: avoid printing directly
         }
     }
-          
 }

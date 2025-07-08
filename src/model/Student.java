@@ -1,10 +1,11 @@
 package model;
 
 public class Student {
-private int studentID;
+    private int studentID;
     private String fullName;
     private double gpa;
 
+    private String internalNote = "N/A";
     public Student(int studentID, String fullName, double gpa) {
         this.setStudentID(studentID);
         this.setFullName(fullName);
@@ -27,9 +28,7 @@ private int studentID;
     }
 
     public void setFullName(String fullName) {
-        if (fullName == null || fullName.length() > 50) {
-            throw new IllegalArgumentException("Name must not exceed 50 characters.");
-        }
+        
         this.fullName = fullName;
     }
 
@@ -38,9 +37,7 @@ private int studentID;
     }
 
     public void setGpa(double gpa) {
-        if (gpa < 0.0 || gpa > 4.0) {
-            throw new IllegalArgumentException("GPA must be between 0.0 and 4.0.");
-        }
+        
         this.gpa = gpa;
     }
 
@@ -48,4 +45,6 @@ private int studentID;
     public String toString() {
         return String.format("%-10d %-50s %.2f", studentID, fullName, gpa);
     }
+
+    
 }

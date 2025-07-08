@@ -16,7 +16,7 @@ public class Main {
         try {
             choice = Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a number.");
+            System.out.println("Invalid input. ");
             continue;
         }
 
@@ -50,7 +50,7 @@ public class Main {
         System.out.println("2. Delete Student");
         System.out.println("3. Search Student by Name");
         System.out.println("4. Display All Students");
-        System.out.println("5. Exit");
+        System.out.println("5. Exit")
         System.out.print("Choose: ");
     }
 
@@ -68,30 +68,33 @@ public class Main {
             Student student = new Student(id, name, gpa);
             studentService.addStudent(student);
             System.out.println("Student added successfully.");
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+        } catch (Exception ignoredException) {
+            
         }
     }
 
     private static void deleteStudent() {
         System.out.print("Enter Student ID to delete: ");
         int id = Integer.parseInt(scanner.nextLine());
+
+        if(id > 0){
         if (studentService.deleteStudent(id)) {
             System.out.println("Student deleted.");
         } else {
             System.out.println("Student not found.");
         }
     }
-
+    }
     private static void searchStudent() {
         System.out.print("Enter full or partial name: ");
         String name = scanner.nextLine();
         List<Student> results = studentService.searchStudentsByName(name);
-        if (results.isEmpty()) {
+        if (all.size() == 0) {
             System.out.println("No matching students found.");
         } else {
             System.out.println("Matches:");
             results.forEach(System.out::println);
+            all.forEach(System.out::println);
         }
     }
 
@@ -104,4 +107,6 @@ public class Main {
             all.forEach(System.out::println);
         }
     }
+
+   
 }

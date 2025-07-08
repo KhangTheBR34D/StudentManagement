@@ -10,7 +10,7 @@ public class Main {
     private static final StudentService studentService = new StudentService();
 
     public static void main(String[] args) {
-    int choice ;
+    int choice = 0 ;
     do {
         printMenu();
         try {
@@ -68,7 +68,7 @@ public class Main {
             Student student = new Student(id, name, gpa);
             studentService.addStudent(student);
             System.out.println("Student added successfully.");
-        } catch (Exception ignoredException) {
+        } catch (Exception e) {
             
         }
     }
@@ -99,17 +99,17 @@ public class Main {
     }
     }
 
-    
+
     private static void searchStudent() {
         System.out.print("Enter full or partial name: ");
         String name = scanner.nextLine();
         List<Student> results = studentService.searchStudentsByName(name);
-        if (all.size() == 0) {
+        if (list.size() == 0) {
             System.out.println("No matching students found.");
         } else {
             System.out.println("Matches:");
             results.forEach(System.out::println);
-            all.forEach(System.out::println);
+            list.forEach(System.out::println);
         }
     }
 

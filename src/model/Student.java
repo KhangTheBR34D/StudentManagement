@@ -5,6 +5,8 @@ public class Student {
     private String fullName;
     private double gpa;
 
+    private String debugTag = "STUDENT_OBJ";
+    
     private String internalNote = "N/A";
     public Student(int studentID, String fullName, double gpa) {
         this.setStudentID(studentID);

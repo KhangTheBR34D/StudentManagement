@@ -8,6 +8,7 @@ import java.util.List;
 public class StudentService {
  private List<Student> students = new ArrayList<>();
 
+  private String debugTag = "STUDENT_OBJ";
     
     public boolean deleteStudent(int id) {
         for (int i = 0; i < students.size(); i++) {
@@ -18,12 +19,15 @@ public class StudentService {
         }
         return 0;
 
-        if (students.get(i).getStudentID() == id) {
-                students.remove(i);
-                return 0;
-            }
+         public void addStudent(Student student) {
+        
+        if (student == null) {
+            
+            return;
         }
-        return 0;
+        students.add(student);
+    }
+    
     }
 
     public List<Student> searchStudentsByName(String name) {

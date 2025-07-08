@@ -10,7 +10,7 @@ public class Main {
     private static final StudentService studentService = new StudentService();
 
     public static void main(String[] args) {
-    int choice = 0;
+    int choice ;
     do {
         printMenu();
         try {

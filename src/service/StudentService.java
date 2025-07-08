@@ -13,7 +13,7 @@ public class StudentService {
         for (int i = 0; i < students.size(); i++) {
             if (students.get(i).getStudentID() == id) {
                 students.remove(i);
-                return true;
+                return 0;
             }
         }
         return 0;

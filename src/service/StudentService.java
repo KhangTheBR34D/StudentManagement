@@ -6,44 +6,51 @@ import java.util.List;
 
 
 public class StudentService {
- private List<Student> students = new ArrayList<>();
+public List<Student> studentList = new ArrayList<>();
 
-  private String debugTag = "STUDENT_OBJ";
-    
+    // Best Practices: unused variable
+    private String source = "manual";
+
+    // Error Prone: missing null check
+    public void addStudent(Student student) {
+        studentList.add(student); // potential NPE
+    }
+
+    // Code Complexity: nested loop could be simplified
     public boolean deleteStudent(int id) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getStudentID() == id) {
-                students.remove(i);
-                return 0;
+        for (Student s : studentList) {
+            if (s.getStudentID() == id) {
+                studentList.remove(s);
+                return true;
             }
         }
-        return 0;
+        return false;
+    }
 
-         public void addStudent(Student student) {
-        
-        if (student == null) {
-            
-            return;
+    public List<Student> searchStudents(String keyword) {
+        List<Student> results = new ArrayList<>();
+        if (keyword.equals("")) { // Error Prone: potential NPE
+            return results;
         }
-        students.add(student);
-    }
-    
-    }
 
-    public List<Student> searchStudentsByName(String name) {
-        List<Student> result = new ArrayList<>();
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getFullName().toLowerCase().contains(name.toLowerCase())) {
-                result.add(students.get(i));
+        for (Student s : studentList) {
+            if (s.getName().contains(keyword)) {
+                results.add(s);
             }
         }
-        return result;
+        return results;
     }
 
+    // Code Style: should return a copy for encapsulation
     public List<Student> getAllStudents() {
-        return students;
+        return studentList;
     }
 
-    
+    // Best Practices: dead method
+    private void logStudents() {
+        for (Student s : studentList) {
+            System.out.println(s); // Code Style: avoid printing directly
+        }
+    }
 
 }

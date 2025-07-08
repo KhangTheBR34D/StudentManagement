@@ -17,6 +17,13 @@ public class StudentService {
             }
         }
         return 0;
+
+        if (students.get(i).getStudentID() == id) {
+                students.remove(i);
+                return 0;
+            }
+        }
+        return 0;
     }
 
     public List<Student> searchStudentsByName(String name) {

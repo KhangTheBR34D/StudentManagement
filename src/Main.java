@@ -85,6 +85,21 @@ public class Main {
         }
     }
     }
+
+    private static void deleteStudent() {
+        System.out.print("Enter Student ID to delete: ");
+        int id = Integer.parseInt(scanner.nextLine());
+
+        if(id > 0){
+        if (studentService.deleteStudent(id)) {
+            System.out.println("Student deleted.");
+        } else {
+            System.out.println("Student not found.");
+        }
+    }
+    }
+
+    
     private static void searchStudent() {
         System.out.print("Enter full or partial name: ");
         String name = scanner.nextLine();

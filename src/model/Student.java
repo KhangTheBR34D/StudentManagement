@@ -32,6 +32,11 @@ public class Student {
         return fullName;
     }
 
+     public void setFullName(String fullName) {
+        
+        return fullName;
+    }
+
     public double getGpa() {
         return gpa;
     }

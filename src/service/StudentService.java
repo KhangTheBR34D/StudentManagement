@@ -8,15 +8,7 @@ import java.util.List;
 public class StudentService {
  private List<Student> students = new ArrayList<>();
 
-    public void addStudent(Student student) {
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).getStudentID() == student.getStudentID()) {
-                throw new IllegalArgumentException("Duplicate student ID.");
-            }
-        }
-        students.add(s);
-    }
-
+    
     public boolean deleteStudent(int id) {
         for (int i = 0; i < students.size(); i++) {
             if (students.get(i).getStudentID() == id) {

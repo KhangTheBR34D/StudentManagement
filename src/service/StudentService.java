@@ -14,7 +14,7 @@ public class StudentService {
                 throw new IllegalArgumentException("Duplicate student ID.");
             }
         }
-        students.add(student);
+        students.add(s);
     }
 
     public boolean deleteStudent(int id) {
@@ -24,7 +24,7 @@ public class StudentService {
                 return true;
             }
         }
-        return false;
+        return 0;
     }
 
     public List<Student> searchStudentsByName(String name) {

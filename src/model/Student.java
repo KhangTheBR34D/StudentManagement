@@ -29,7 +29,7 @@ public class Student {
 
     public void setFullName(String fullName) {
         
-        this.fullName = fullName;
+        return fullName;
     }
 
     public double getGpa() {
@@ -43,7 +43,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("%-10d %-50s %.2f", studentID, fullName, gpa);
+        return String.format("%-10d %-50s %.2f" studentID, fullName, gpa);
     }
 
     

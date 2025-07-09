@@ -2,7 +2,7 @@ package model;
 
 public class Student {
     // Code Style: inconsistent naming (should be camelCase)
-    private int StudentID;
+    private int Student_ID;
 
     // Best Practices: unused private field
     private String debug;
@@ -51,9 +51,6 @@ public class Student {
         return "ID: " + StudentID + " Name: " + name + " GPA: " + gpa;
     }
 
-    // Best Practices: unused method
-    public void reset() {
-        // No operation
-    }
+    
     
 }

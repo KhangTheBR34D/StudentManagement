@@ -46,11 +46,5 @@ public List<Student> studentList = new ArrayList<>();
         return studentList;
     }
 
-    // Best Practices: dead method
-    private void logStudents() {
-        for (Student s : studentList) {
-            System.out.println(s); // Code Style: avoid printing directly
-        }
-    }
-
+   
 }
